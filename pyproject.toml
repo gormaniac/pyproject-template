@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{NAME}}"
+version = "0.0.1"
+description = "The {{NAME}} Python package"
+readme = "README.md"
+requires-python = ">=3.11"
+
+# Fill in {{NAME}}'s dependencies here.
+# dependencies = [
+#     "aiohttp==3.8.4",
+# ]
+
+[[project.authors]]
+name = "John Gorman"
+
+[project.license]
+file = "LICENSE"
+
+[project.urls]
+Homepage = "https://github.com/gormaniac/{{NAME}}"
+Documentation = "https://gormo.co/{{NAME}}/"
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ["src"]
