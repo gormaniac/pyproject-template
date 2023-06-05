@@ -50,7 +50,7 @@ PARSER.add_argument(
 PARSER.add_argument(
     "--docs-base",
     help="The base URL to point to this project's documentation.",
-    default="https://gormo.com",
+    default="https://gormo.co",
 )
 PARSER.add_argument(
     "--delete",
