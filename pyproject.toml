@@ -9,20 +9,18 @@ description = "The {{NAME}} Python package"
 readme = "README.md"
 requires-python = ">=3.11"
 
-# Fill in {{NAME}}'s dependencies here.
-# dependencies = [
-#     "aiohttp==3.8.4",
-# ]
+# Fill in dependencies here.
+dependencies = []
 
 [[project.authors]]
-name = "John Gorman"
+name = "{{AUTHOR}}"
 
 [project.license]
 file = "LICENSE"
 
 [project.urls]
-Homepage = "https://github.com/gormaniac/{{NAME}}"
-Documentation = "https://gormo.co/{{NAME}}/"
+Homepage = "{{GHBASE}}/{{NAME}}"
+Documentation = "{{DOCSBASE}}/{{NAME}}/"
 
 [tool.setuptools.packages.find]
 namespaces = true
