@@ -1,4 +1,4 @@
-:github_url: https://github.com/gormaniac/{{NAME}}
+:github_url: {{GHBASE}}/{{NAME}}
 
 Welcome to {{NAME}}'s documentation!
 =======================================

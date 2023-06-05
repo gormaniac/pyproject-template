@@ -123,7 +123,7 @@ def main():
         author=args.author,
         docs_base=args.docs_base,
         gh_base=args.gh_base,
-        year=datetime.datetime.now(),
+        year=str(datetime.datetime.now().year),
     )
 
     if args.delete:
