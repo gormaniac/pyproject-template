@@ -16,12 +16,6 @@ import os
 import sys
 
 
-try:
-    NEW_NAME = sys.argv[1]
-except IndexError:
-    print("Must specify a project name (make sure the name is a valid python symbol)!")
-    sys.exit(1)
-
 NAME_RE = re.compile(r"\{\{NAME\}\}")
 AUTHOR_RE = re.compile(r"\{\{AUTHOR\}\}")
 YEAR_RE = re.compile(r"\{\{YEAR\}\}")
@@ -65,12 +59,12 @@ def delete_self():
     os.remove(os.path.abspath(__file__))
 
 
-def rename_package():
+def rename_package(new_name: str):
     """Rename the folder `src/{{NAME}}`."""
 
     old_dir_name = "src/{{NAME}}"
     old_dir = os.path.join(PARENT_DIR, old_dir_name)
-    new_dir_name = NAME_RE.sub(NEW_NAME, old_dir_name)
+    new_dir_name = NAME_RE.sub(new_name, old_dir_name)
     new_dir = os.path.join(PARENT_DIR, new_dir_name)
 
     try:
@@ -89,7 +83,7 @@ def replace_vals(
 ):
     """Walk __file__'s parent dir and replace all instances of `{{NAME}}`.
 
-    Uses this script's loaded `NEW_NAME` variable for the replacement.
+    Also replaces other values in files based on *_RE regex expressions.
     """
 
     for dpath, _, fnames in os.walk(PARENT_DIR):
@@ -117,7 +111,7 @@ def main():
 
     args = PARSER.parse_args()
 
-    rename_package()
+    rename_package(args.name)
     replace_vals(
         name=args.name,
         author=args.author,
